@@ -1,0 +1,228 @@
+body,
+html {
+    margin: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo img {
+    width: 50%;
+    padding-left: 15%;
+    padding-top: 3%;
+}
+
+.options {
+    color: aliceblue;
+    padding: 3%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.options a {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.options a:hover {
+    color: #778DA9;
+}
+
+.login a {
+    font-size: 1.2em;
+    color: #000000;
+}
+
+/* ... (restante do seu CSS) ... */
+
+.hamburger-menu {
+    display: none;
+    z-index: 1000;
+    /* Adicionado z-index */
+}
+
+@media (max-width: 1024px) {
+
+    .options a,
+    .options button {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+}
+
+.main img {
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0.7) 60%);
+    z-index: 2;
+}
+
+.introducing {
+    position: absolute;
+    top: 48%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: left;
+    width: 50%;
+    z-index: 3;
+}
+
+.introducing_title {
+    font-size: 4em;
+}
+
+.introducing_desc {
+    font-size: 1.5em;
+}
+
+
+
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #E0E1DD;
+    border-radius: .3rem;
+}
+
+.jumbotron p {
+    font-size: 1.5em;
+    color: #000000;
+}
+
+.modules img {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.modules2 {
+    width: 60% !important;
+    margin-top: 7%;
+    margin-bottom: 7%;
+    margin-left: 10%;
+}
+
+.modules h2 {
+    font-size: 3em;
+}
+
+.modules p {
+    font-size: 1.5em;
+}
+
+@media (max-width: 992px) {
+    .logo img {
+        width: 50%;
+    }
+
+    .options {
+        text-align: right;
+    }
+
+    .options a {
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    .introducing {
+        top: 30%;
+        left: 10%;
+        right: 10%;
+        transform: translateY(-30%);
+        width: auto;
+    }
+
+    .introducing_title,
+    .introducing_desc p {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .logo,
+    .options {
+        text-align: center;
+        width: 100%;
+    }
+
+    .options a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .introducing {
+        top: 20%;
+        left: 5%;
+        right: 5%;
+        transform: translateY(-20%);
+    }
+
+    .introducing_title {
+        font-size: 1em;
+    }
+
+    .introducing_desc p {
+        font-size: 0.9em;
+    }
+}
+
+.footer {
+    background-color: #111;
+    color: #ccc;
+    padding: 40px 0;
+}
+
+.footer img {
+    width: 25%;
+}
+
+.footer h5 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer ul li a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer .social-icon {
+    margin-right: 10px;
+}
+
+.footer .social-icon img {
+    width: 32px;
+}
