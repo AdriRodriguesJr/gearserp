@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+
+    <title>Gears ERP</title>
+    <style>
+        @media (max-width: 1024px) {
+            .options a {
+                display: none;
+            }
+
+            .options .hamburger-menu {
+                display: block;
+            }
+
+            .options .hamburger-menu .navbar-toggler {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="row">
+            <div class="col-6 logo">
+                <img src="/img/zyro-image__3_-removebg.png" alt="">
+            </div>
+            <div class="col-6 options">
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/funcionalidades">Funcionalidades</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/sobre">Sobre nós</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/planos">Planos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
+                    </ul>
+                </div>
+                <a href="/">Home</a>
+                <a href="/funcionalidades">Funcionalidades</a>
+                <a href="/sobre">Sobre nós</a>
+                <a href="/planos">Planos</a>
+                <a href="/contato">Contato</a>
+                <button type="button" class="btn btn-light login"><a href="/login">Login</a></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="main">
+            <img src="/img/wepik-export-20231001032624TH7w.png" alt="">
+            <div class="overlay"></div>
+            <section class="introducing">
+                <h1 class="introducing_title">Contatos</h1>
+                <div class="introducing_desc">
+                    <p>Abaixo estão nossos meios de contato. Será um prazer falar com você.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <section class="container my-5">
+        <h2 class="text-center mb-4">Como você prefere nos contatar?</h2>
+        <div class="row">
+            <!-- WhatsApp Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">WhatsApp</h4>
+                        <p class="card-text">Nos envie uma mensagem clicando abaixo.</p>
+                        <a href="https://wa.me/5511987654321" target="_blank" class="btn btn-success mt-auto">
+                            <i class="bi bi-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phone Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Telefone</h4>
+                        <p class="card-text">Ligue para nós no número abaixo.</p>
+                        <p class="btn btn-primary mt-auto">
+                            <i class="bi bi-telephone-fill"></i> +55 11 98765-4321
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Email</h4>
+                        <p class="card-text">Preencha os campos que serão exibidos:</p>
+                        <button class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#emailModal">
+                            <i class="bi bi-envelope-fill"></i> Email
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Modal -->
+        <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="emailModalLabel">Enviar Email</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="phone" name="phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" form="contactForm">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-center my-5">
+        <h2>Ou se preferir, nos faça uma visita</h2>
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29265.998721905253!2d-46.23448412568361!3d-23.523514799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xae7127b7cfa79e01%3A0x1e911fd7091c93d7!2sEsta%C3%A7%C3%A3o%20Business%20Coworking%20Mogi!5e0!3m2!1spt-BR!2sbr!4v1696579544434!5m2!1spt-BR!2sbr"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-md-4 text-left justify-content-center">
+                <h3>Rua çocorro senhor</h3>
+                <p>Numero: 666</p>
+                <p>Cidade: Inferno, confia</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-12 text-center">
+                    <img src="/img/zyro-image__3_-removebg.png" alt="Gears ERP Logo" class="img-fluid">
+                </div>
+            </div>
+            <hr>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <h5>Gears ERP</h5>
+                    <p>123 Rua Exemplo, Cidade, Estado, 12345</p>
+                    <p>contato@gearserp.com.br</p>
+                    <p>(11) 4002-8922</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Siga-nos</h5>
+                    <a href="#" class="social-icon text-light"><i class="bi bi-facebook"
+                            style="font-size: 24px;"></i></a>
+                    <a href="#" class="social-icon text-light"><i class="bi bi-twitter"
+                            style="font-size: 24px;"></i></a>
+                    <a href="#" class="social-icon text-light"><i class="bi bi-linkedin"
+                            style="font-size: 24px;"></i></a>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center">123.456.789/0001-01</p>
+            <hr>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

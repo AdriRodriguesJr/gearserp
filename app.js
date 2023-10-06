@@ -1,11 +1,15 @@
+const path = require('path');
 const express = require('express');
-const userRoutes = require('./src/routes/userRoutes');
-
 const app = express();
-const PORT = 3000;
+const routes = require('./src/routes'); // Certifique-se de que o caminho está correto
 
-app.use('/users', userRoutes);
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'src', 'views'));
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`)
-});
+app.use(express.static(path.join(__dirname, 'src', 'static')));
+
+
+app.use('/', routes); // Esta linha estava faltando
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

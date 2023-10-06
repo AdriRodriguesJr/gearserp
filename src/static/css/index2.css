@@ -51,6 +51,10 @@ header {
     /* Adicionado z-index */
 }
 
+.offcanvas_menu{
+    display: none;
+}
+
 @media (max-width: 1024px) {
 
     .options a,
