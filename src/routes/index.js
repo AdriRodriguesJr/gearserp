@@ -12,5 +12,5 @@ router.get('/login', homeController.login);
  /*pós login */
 
  router.get('/home', homeController.home);
-
+ router.get('/listaos', homeController.listaos);
 module.exports = router;
