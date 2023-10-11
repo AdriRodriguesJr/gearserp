@@ -4,7 +4,8 @@ const app = express();
 const routes = require('./src/routes'); // Certifique-se de que o caminho está correto
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'src', 'views'));
+app.set('views', path.join(__dirname, 'src', 'views', 'pre_login'));
+app.set('views', path.join(__dirname, 'src', 'views', 'pos_login'));
 
 app.use(express.static(path.join(__dirname, 'src', 'static')));
 

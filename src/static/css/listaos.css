@@ -194,3 +194,36 @@ th {
     color: #fff;
     /* Define a cor do texto no cabeçalho */
 }
+
+.float-button {
+    background-color: #0D1B2A;
+    color: #778DA9;
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    border: none;
+    font-size: 1.5em;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.modal-header{
+    background-color: #0D1B2A;
+    color: #E0E1DD;
+    text-align: center;
+}
+
+.btn-close {
+    color: white !important;
+}
+
+label{
+    color:#000000;
+    font-size: 1.2em;
+}
+
+.space{
+    padding-top: 2%;
+}
