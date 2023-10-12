@@ -264,7 +264,7 @@ label {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 412) {
     .table {
         display: none;
         /* Esconde a tabela */
