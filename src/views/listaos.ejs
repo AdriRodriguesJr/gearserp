@@ -103,15 +103,15 @@
     </header>
 
     <div class="container mt-5">
-        <h1>Lista de Orçamentos</h1>
+        <h2 class="text-center titles">Lista de Ordem de Serviços</h2>
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">OS ID</th>
                     <th scope="col">Tipo de Serviço</th>
                     <th scope="col">Cliente</th>
-                    <th scope="col">Entrada do Orçamento</th>
-                    <th scope="col">Previsão de Término</th>
+                    <th scope="col">Entrada</th>
+                    <th scope="col">Término</th>
                 </tr>
             </thead>
             <tbody>
@@ -137,6 +137,54 @@
             </tbody>
         </table>
     </div>
+    <div class="os-cards container">
+        <% for (const orcamento of listaOrcamentos) { %>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 os-number">
+                            <p><strong>
+                                    OS: <%= orcamento.id %>
+                                </strong></p>
+                        </div>
+
+                        <div class="col-6 os-number text-center">
+                            <strong>
+                                <p>Status: <i class="bi bi-circle-fill" id="statusIcon"></i></p>
+                            </strong>
+
+                        </div>
+
+                        <div class="col-6 text-center">
+                            <p><strong>Cliente:</strong>
+                                <%= orcamento.cliente %>
+                            </p>
+
+                        </div>
+                        <div class="col-6 text-center">
+                            <p><strong>Tipo:</strong>
+                                <%= orcamento.tipoServico %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <p><strong>Entrada:</strong>
+                                <%= orcamento.entradaOrcamento %>
+                            </p>
+                        </div>
+                        <div class="col-6 text-center">
+                            <p><strong>Término:</strong>
+                                <%= orcamento.previsaoTermino %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+    </div>
+
+
 
     <button type="button" class="position-fixed bottom-0 end-0 m-3 float-button" data-bs-toggle="modal"
         data-bs-target="#registerModal">
@@ -152,7 +200,7 @@
                 </div>
                 <div class="modal-body">
                     <form class="row">
-                        <div class="col-6 modal-style space">
+                        <div class="col-12 col-md-6 modal-style space">
                             <label for="cliente" class="form-label">Cliente:</label>
                             <select class="form-control" id="cliente" required>
                                 <option value="" disabled selected>Selecione um cliente</option>
@@ -161,7 +209,7 @@
                                 <option value="3">Cliente 3</option>
                             </select>
                         </div>
-                        <div class="col-6 space">
+                        <div class="col-12 col-md-6 space">
                             <label for="tipoVeiculo" class="form-label">Tipo de Veiculo:</label>
                             <select class="form-control" id="tipoVeiculo" required>
                                 <option value="" disabled selected>Selecione um tipo</option>
@@ -171,19 +219,19 @@
                                 <option value="4">Outros</option>
                             </select>
                         </div>
-                        <div class="col-4 mb-3 space">
+                        <div class="col-12 col-md-4 mb-3 space">
                             <label for="concessionaria" class="form-label">Concessionaria</label>
                             <input type="text" class="form-control" id="concessionaria" required>
                         </div>
-                        <div class="col-4 mb-3 space">
+                        <div class="col-12 col-md-4 mb-3 space">
                             <label for="modelo" class="form-label">Modelo</label>
                             <input type="text" class="form-control" id="modelo" required>
                         </div>
-                        <div class="col-4 mb-3 space">
+                        <div class="col-12 col-md-4 mb-3 space">
                             <label for="ano" class="form-label">Ano</label>
                             <input type="text" class="form-control" id="ano" required>
                         </div>
-                        <div class="col-12 mb-3 modal-style">
+                        <div class="col-12 mb-3 modal-style space">
                             <label for="descricao" class="form-label">Descrição</label>
                             <textarea class="form-control" id="descricao" rows="4" required></textarea>
                         </div>

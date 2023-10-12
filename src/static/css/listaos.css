@@ -153,21 +153,10 @@ header {
     font-size: 1.5em;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .logo {
-        max-width: 100px;
-    }
-
-    .icons i {
-        font-size: 1.2em;
-    }
-
-    .offcanvas-body h6,
-    .offcanvas-body a {
-        font-size: 1em;
-    }
+.titles {
+    color: #0D1B2A;
 }
+
 
 /* listaOS */
 
@@ -180,7 +169,10 @@ table {
     /* Garante que as bordas arredondadas sejam visíveis */
 }
 
-th,td,tr,tbody {
+th,
+td,
+tr,
+tbody {
     text-align: center;
     padding: 10px;
     /* Adiciona um espaçamento interno para as células */
@@ -209,7 +201,7 @@ th {
     z-index: 999;
 }
 
-.modal-header{
+.modal-header {
     background-color: #0D1B2A;
     color: #E0E1DD;
     text-align: center;
@@ -219,11 +211,109 @@ th {
     color: white !important;
 }
 
-label{
-    color:#000000;
+label {
+    color: #000000;
     font-size: 1.2em;
 }
 
-.space{
-    padding-top: 2%;
+.space {
+    padding: 1%;
+}
+
+#statusIcon {
+    color: red;
+    /* Mude para a cor desejada */
+}
+
+.os-cards{
+    display: none;
+}
+
+/* Responsividade */
+@media (max-width: 320px) {
+    .logo {
+        max-width: 100px;
+    }
+
+    .icons i {
+        font-size: 1em;
+    }
+
+    .offcanvas-body h6,
+    .offcanvas-body a {
+        font-size: 1em;
+    }
+
+    table {
+        display: none;
+    }
+
+    .os-cards .card-body {
+        padding: 10px;
+        /* Ajusta o padding para telas menores */
+    }
+
+    .os-cards .os-number p,
+    .os-cards .row div p {
+        font-size: 12px;
+        /* Ajusta o tamanho da fonte para telas menores */
+    }
+
+    .modal-body {
+        display: block;
+    }
+}
+
+@media (max-width: 375px) {
+    .table {
+        display: none;
+        /* Esconde a tabela */
+    }
+
+    .os-cards {
+        display: block;
+        /* Mostra os cards */
+        padding: 0 10px;
+        /* Adiciona um pequeno padding lateral para garantir que os cards não toquem as bordas da tela */
+    }
+
+    .os-cards .card {
+        margin-bottom: 15px;
+        /* Ajusta a margem inferior dos cards para um espaçamento consistente */
+    }
+
+    .os-cards .card-body {
+        padding: 12px;
+        /* Ajusta o padding do corpo do card */
+    }
+
+    .os-number {
+        padding: 8px;
+        /* Ajusta o padding do número da OS */
+        border-radius: 5px;
+        /* Adiciona bordas arredondadas ao fundo */
+    }
+
+    .os-cards .row div p,
+    .os-cards .os-number p {
+        font-size: 13px;
+        /* Ajusta o tamanho da fonte para um melhor ajuste */
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .logo {
+        max-width: 100px;
+    }
+
+    .icons i {
+        font-size: 1.2em;
+    }
+
+    .offcanvas-body h6,
+    .offcanvas-body a {
+        font-size: 1em;
+    }
 }
