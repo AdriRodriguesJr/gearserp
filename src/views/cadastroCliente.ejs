@@ -54,7 +54,7 @@
                         <hr>
                         <h6>Dashboard</h6>
                         <hr>
-                        <a class="nav-link" href="/home"><i class="bi bi-house-door"></i> Início</a>
+                        <a class="nav-link" href="#"><i class="bi bi-house-door"></i> Início</a>
                     </li>
                     <hr>
 
@@ -101,107 +101,7 @@
             </div>
         </div>
     </header>
-    <!-- OS vizualizada quanto Desktop ou telas grandes, em lista -->
-    <div class="container mt-5">
-        <h2 class="text-center titles">Lista de Ordem de Serviços</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">OS ID</th>
-                    <th scope="col">Tipo de Serviço</th>
-                    <th scope="col">Cliente</th>
-                    <th scope="col">Entrada</th>
-                    <th scope="col">Término</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (const orcamento of listaOrcamentos) { %>
-                    <tr data-bs-toggle="modal" data-bs-target="#osModal">
-                        <th scope="row" class="os-id">
-                            <%= orcamento.id %>
-                        </th>
-                        <td>
-                            <%= orcamento.tipoServico %>
-                        </td>
-                        <td>
-                            <%= orcamento.cliente %>
-                        </td>
-                        <td>
-                            <%= orcamento.entradaOrcamento %>
-                        </td>
-                        <td>
-                            <%= orcamento.previsaoTermino %>
-                        </td>
-                    </tr>
-                    <% } %>
-            </tbody>
-        </table>
-    </div>
-    <!-- OS vizualizadas quando mobile, em cards -->
-    <div class="os-cards container">
-        <% for (const orcamento of listaOrcamentos) { %>
-            <div class="card mb-3" data-bs-toggle="modal" data-bs-target="#osModal">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6 os-number os-id">
-                            <p><strong>
-                                    OS: <%= orcamento.id %>
-                                </strong></p>
-                        </div>
 
-                        <div class="col-6 os-number text-center">
-                            <strong>
-                                <p>Status: <i class="bi bi-circle-fill" id="statusIcon"></i></p>
-                            </strong>
-
-                        </div>
-
-                        <div class="col-6 text-center">
-                            <p><strong>Cliente:</strong>
-                                <%= orcamento.cliente %>
-                            </p>
-
-                        </div>
-                        <div class="col-6 text-center">
-                            <p><strong>Tipo:</strong>
-                                <%= orcamento.tipoServico %>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 text-center">
-                            <p><strong>Entrada:</strong>
-                                <%= orcamento.entradaOrcamento %>
-                            </p>
-                        </div>
-                        <div class="col-6 text-center">
-                            <p><strong>Término:</strong>
-                                <%= orcamento.previsaoTermino %>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <% } %>
-    </div>
-    <!-- Modal de dados das OS -->
-    <div class="modal fade" id="osModal" tabindex="-1" aria-labelledby="osModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="osModalLabel">Detalhes da Ordem de Serviço</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Os detalhes da OS serão inseridos aqui -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Botão de cadastro de nova OS -->
     <button type="button" class="position-fixed bottom-0 end-0 m-3 float-button" data-bs-toggle="modal"
         data-bs-target="#registerModal">
         <i class="bi bi-plus-lg"></i>

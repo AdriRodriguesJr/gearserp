@@ -43,3 +43,6 @@ exports.listaos = (req, res) => {
     res.render('listaos', { listaOrcamentos });
 };
 
+exports.cadastroCliente = (req, res) => {
+    res.render('cadastroCliente');
+};

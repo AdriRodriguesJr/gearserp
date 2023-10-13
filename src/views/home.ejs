@@ -11,13 +11,14 @@
 </head>
 
 <body>
+    <!-- Cabeçalho da pagina, base de todas as paginas -->
     <header class="text-white py-3">
         <div class="container d-flex justify-content-between align-items-center">
             <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <i class="bi bi-list"></i>
             </button>
-            <img src="/img/zyro-image__3_-removebg.png" alt="Gears ERP Logo" class="img-fluid logo">
+            <img src="/img/logo_sem_fundo" alt="Gears ERP Logo" class="img-fluid logo">
             <div class="icons">
                 <div class="dropdown d-inline">
                     <i class="bi bi-bell me-4" id="bellDropdown" data-bs-toggle="dropdown" aria-expanded="false"></i>
@@ -40,66 +41,75 @@
                 </div>
             </div>
         </div>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close text-reset align-right" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <hr>
+                        <h6>Dashboard</h6>
+                        <hr>
+                        <a class="nav-link" href="/home"><i class="bi bi-house-door"></i> Início</a>
+                    </li>
+                    <hr>
+
+                    <li class="nav-item">
+                        <h6>Ordem de Serviço</h6>
+                        <hr>
+                        <a class="nav-link" href="listaos"><i class="bi bi-file-earmark-text"></i> Lista de OS</a>
+                    </li>
+                    <hr>
+                    <li class="nav-item">
+                        <h6>Cadastros</h6>
+                        <hr>
+                        <a class="nav-link" href="/cadastroCliente"><i class="bi bi-person-plus"></i> Cadastro de
+                            Cliente / Fornecedor</a>
+                        <a class="nav-link" href="#"><i class="bi bi-file-earmark-richtext"></i> Contratos</a>
+                    </li>
+                    <hr>
+                    <li class="nav-item">
+                        <h6>Estoque</h6>
+                        <hr>
+                        <a class="nav-link" href="#"><i class="bi bi-box"></i> Pesquisa de Estoque</a>
+                        <a class="nav-link" href="#"><i class="bi bi-plus-square"></i> Cadastro de Produtos</a>
+                    </li>
+                    <hr>
+                    <li class="nav-item">
+                        <h6>Relatórios</h6>
+                        <hr>
+                        <a class="nav-link" href="#"><i class="bi bi-file-earmark-text"></i> Relatório de Vendas</a>
+                        <a class="nav-link" href="#"><i class="bi bi-file-earmark-bar-graph"></i> Relatório de
+                            Estoque</a>
+                        <a class="nav-link" href="#"><i class="bi bi-file-earmark-spreadsheet"></i> Relatório
+                            Financeiro</a>
+                        <a class="nav-link" href="#"><i class="bi bi-file-earmark-check"></i> Relatório de OS</a>
+                    </li>
+                    <hr>
+                    <li class="nav-item">
+                        <h6>Pagamentos</h6>
+                        <hr>
+                        <a class="nav-link" href="#"><i class="bi bi-credit-card"></i> Pagamento com Cartão</a>
+                        <a class="nav-link" href="#"><i class="bi bi-upc-scan"></i> Pix QRCode</a>
+                    </li>
+                    <hr>
+                </ul>
+            </div>
+        </div>
     </header>
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-            <button type="button" class="btn-close text-reset align-right" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                    <hr>
-                    <h6>Dashboard</h6>
-                    <hr>
-                    <a class="nav-link" href="#"><i class="bi bi-house-door"></i> Início</a>
-                </li>
-                <hr>
-                <li class="nav-item">
-                    <h6>Pagamentos</h6>
-                    <hr>
-                    <a class="nav-link" href="#"><i class="bi bi-credit-card"></i> Pagamento com Cartão</a>
-                    <a class="nav-link" href="#"><i class="bi bi-upc-scan"></i> Pix QRCode</a>
-                </li>
-                <hr>
-                <li class="nav-item">
-                    <h6>Ordem de Serviço</h6>
-                    <hr>
-                    <a class="nav-link" href="listaos"><i class="bi bi-file-earmark-text"></i> Lista de OS</a>
-                    <a class="nav-link" href=""><i class="bi bi-plus-square"></i> Criar nova OS</a>
-                    <a class="nav-link" href="#"><i class="bi bi-clock-history"></i> Histórico de OS</a>
-                </li>
-                <hr>
-                <li class="nav-item">
-                    <h6>Cadastros</h6>
-                    <hr>
-                    <a class="nav-link" href="#"><i class="bi bi-person-plus"></i> Cadastro de Cliente</a>
-                    <a class="nav-link" href="#"><i class="bi bi-truck"></i> Cadastro de Fornecedor</a>
-                    <a class="nav-link" href="#"><i class="bi bi-file-earmark-richtext"></i> Contratos</a>
-                </li>
-                <hr>
-                <li class="nav-item">
-                    <h6>Estoque</h6>
-                    <hr>
-                    <a class="nav-link" href="#"><i class="bi bi-box"></i> Pesquisa de Estoque</a>
-                    <a class="nav-link" href="#"><i class="bi bi-plus-square"></i> Cadastro de Produtos</a>
-                </li>
-                <hr>
-                <li class="nav-item">
-                    <h6>Relatórios</h6>
-                    <hr>
-                    <a class="nav-link" href="#"><i class="bi bi-file-earmark-text"></i> Relatório de Vendas</a>
-                    <a class="nav-link" href="#"><i class="bi bi-file-earmark-bar-graph"></i> Relatório de Estoque</a>
-                    <a class="nav-link" href="#"><i class="bi bi-file-earmark-spreadsheet"></i> Relatório Financeiro</a>
-                    <a class="nav-link" href="#"><i class="bi bi-file-earmark-check"></i> Relatório de OS</a>
-                </li>
-                <hr>
-            </ul>
-        </div>
+    <div class="container mt-5">
+        <h2>Dashboard</h2>
+        <canvas id="myChart" width="400" height="200"></canvas>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/dashboard.js"></script>
 </body>
 
 </html>

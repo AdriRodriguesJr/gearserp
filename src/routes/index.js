@@ -9,8 +9,10 @@ router.get('/planos', homeController.planos);
 router.get('/contato', homeController.contato);
 router.get('/login', homeController.login);
 
- /*pós login */
+/*pós login */
 
- router.get('/home', homeController.home);
- router.get('/listaos', homeController.listaos);
+router.get('/home', homeController.home);
+router.get('/listaos', homeController.listaos);
+router.get('/cadastroCliente', homeController.cadastroCliente);
+
 module.exports = router;
