@@ -168,6 +168,10 @@ header {
     margin-left: 25px;
 }
 
+canvas{
+    width: 50%;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .logo {

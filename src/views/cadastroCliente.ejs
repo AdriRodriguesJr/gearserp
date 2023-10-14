@@ -18,7 +18,7 @@
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <i class="bi bi-list"></i>
             </button>
-            <img src="/img/logo_sem_fundo" alt="Gears ERP Logo" class="img-fluid logo">
+            <img src="/img/logo.png" alt="Gears ERP Logo" class="img-fluid logo">
             <div class="icons">
                 <div class="dropdown d-inline">
                     <i class="bi bi-bell me-4" id="bellDropdown" data-bs-toggle="dropdown" aria-expanded="false"></i>
@@ -116,42 +116,53 @@
                 </div>
                 <div class="modal-body">
                     <form class="row">
-                        <div class=" col-md-6 modal-style space">
-                            <label for="cliente" class="form-label">Cliente:</label>
-                            <select class="form-control" id="cliente" required>
-                                <option value="" disabled selected>Selecione um cliente</option>
-                                <option value="1">Cliente 1</option>
-                                <option value="2">Cliente 2</option>
-                                <option value="3">Cliente 3</option>
-                            </select>
-                        </div>
-                        <div class=" col-md-6 space">
-                            <label for="tipoVeiculo" class="form-label">Tipo de Veiculo:</label>
-                            <select class="form-control" id="tipoVeiculo" required>
-                                <option value="" disabled selected>Selecione um tipo</option>
-                                <option value="1">Carro</option>
-                                <option value="2">Moto</option>
-                                <option value="3">Caminhão</option>
-                                <option value="4">Outros</option>
-                            </select>
+                        <div class=" col-md-4 mb-3 space">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome" required
+                                placeholder="Ex: Adriano Rodrigues">
                         </div>
                         <div class=" col-md-4 mb-3 space">
-                            <label for="concessionaria" class="form-label">Montadora</label>
-                            <input type="text" class="form-control" id="concessionaria" required
-                                placeholder="Ex: Chevrolet">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" required
+                                placeholder="exemplo@exemplo.com">
+                        </div>
+                        <div class=" col-md-4 mb-3 space">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="number" class="form-control" id="telefone" required placeholder="11912345678">
+                        </div>
+                        <div class=" col-md-4 mb-3 space">
+                            <label for="cpf" class="form-label">CPF</label>
+                            <input type="number" class="form-control" id="cpf" required
+                                placeholder="12345678902">
                         </div>
                         <div class="col-12 col-md-4 mb-3 space">
-                            <label for="modelo" class="form-label">Modelo</label>
-                            <input type="text" class="form-control" id="modelo" required placeholder="Modelo do carro">
+                            <label for="cep" class="form-label">CEP</label>
+                            <input type="number" class="form-control" id="cep" required placeholder="12345-000">
                         </div>
                         <div class="col-12 col-md-4 mb-3 space">
-                            <label for="ano" class="form-label">Ano</label>
-                            <input type="text" class="form-control" id="ano" required placeholder="Ano do carro">
+                            <label for="endereco" class="form-label">Endereco</label>
+                            <input type="text" class="form-control" id="endereco" required placeholder="Av. exemplo">
                         </div>
-                        <div class="col-12 mb-3 modal-style space">
-                            <label for="descricao" class="form-label">Descrição</label>
-                            <textarea class="form-control" id="descricao" rows="4" required
-                                placeholder="Escreva aqui as queixas e problemas do veículo:"></textarea>
+                        <div class="col-12 col-md-4 mb-3 space">
+                            <label for="numero" class="form-label">Numero</label>
+                            <input type="number" class="form-control" id="numero" required placeholder="1234">
+                        </div>
+                        <div class="col-12 col-md-4 mb-3 space">
+                            <label for="estado" class="form-label">Estado</label>
+                            <input type="text" class="form-control" id="estado" required placeholder="São Paulo">
+                        </div>
+                        <div class="col-12 col-md-4 mb-3 space">
+                            <label for="cidade" class="form-label">Cidade</label>
+                            <input type="text" class="form-control" id="cidade" required placeholder="Campinas">
+                        </div>
+
+                        <div class="col-12 col-md-4 mb-3 space">
+                            <label for="tipo" class="form-label">Tipo</label>
+                            <select class="form-control" id="tipo" required>
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="1">Cliente</option>
+                                <option value="2">Fornecedor</option>
+                            </select>
                         </div>
 
                         <div class="mb-3 ">
