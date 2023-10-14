@@ -200,6 +200,7 @@ th {
     background-color: #0D1B2A;
     color: #E0E1DD;
     text-align: center;
+    width: 100%;
 }
 
 .btn-close {
@@ -219,7 +220,7 @@ label {
     color: red;
 }
 
-.os-cards {
+.clientes-cards {
     display: none;
 }
 
@@ -229,7 +230,7 @@ label {
         display: none;
     }
 
-    .os-cards {
+    .clientes-cards {
         display: block;
     }
 
@@ -246,12 +247,12 @@ label {
         font-size: 1em;
     }
 
-    .os-cards .card-body {
+    .clientes-cards .card-body {
         padding: 10px;
     }
 
-    .os-cards .os-number p,
-    .os-cards .row div p {
+    .clientes-cards .os-number p,
+    .clientes-cards .row div p {
         font-size: 12px;
     }
 
@@ -274,16 +275,16 @@ label {
         /* Esconde a tabela */
     }
 
-    .os-cards {
+    .clientes-cards {
         display: block;
         padding: 0 10px;
     }
 
-    .os-cards .card {
+    .clientes-cards .card {
         margin-bottom: 15px;
     }
 
-    .os-cards .card-body {
+    .clientes-cards .card-body {
         padding: 12px;
     }
 
@@ -292,8 +293,8 @@ label {
         border-radius: 5px;
     }
 
-    .os-cards .row div p,
-    .os-cards .os-number p {
+    .clientes-cards .row div p,
+    .clientes-cards .os-number p {
         font-size: 13px;
     }
 
@@ -307,7 +308,7 @@ label {
         display: none;
     }
 
-    .os-cards {
+    .clientes-cards {
         display: block;
     }
 
@@ -324,13 +325,13 @@ label {
         font-size: 1em;
     }
 
-    .os-cards .card-body {
+    .clientes-cards .card-body {
         padding: 10px;
 
     }
 
-    .os-cards .os-number p,
-    .os-cards .row div p {
+    .clientes-cards .os-number p,
+    .clientes-cards .row div p {
         font-size: 12px;
     }
 
