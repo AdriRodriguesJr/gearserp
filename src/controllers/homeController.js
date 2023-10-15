@@ -19,7 +19,7 @@ exports.contato = (req, res) => {
 };
 
 exports.showLoginPage = (req, res) => {
-    res.render('login', { error: null }); 
+    res.render('login', { error: null });
 };
 
 /* Pós login */

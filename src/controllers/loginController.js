@@ -1,48 +1,45 @@
 const bcrypt = require('bcrypt');
 const db = require('../models/db');
+const jwt = require('jsonwebtoken');
+const secret = process.env.JWT_SECRET;
 
 exports.login = async (req, res) => {
-    console.log('Iniciando o processo de login...');
-
     const { email, senha } = req.body;
-    console.log('Email recebido:', email);
-    console.log('Senha recebida:', senha);  // Remova essa linha em produção para manter a senha segura
+
+    if (!email || !senha) {
+        console.log('Email ou senha não fornecidos');
+        return res.status(400).send('Email e senha são obrigatórios');
+    }
 
     try {
-        console.log('Consultando o banco de dados...');
-        const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
-        const user = rows[0];  // Acessando o primeiro item do array
-        console.log('Usuário encontrado:', user);
+        const [user] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
 
-        if (user) {
-            console.log('Usuário encontrado. Verificando se senha e hash estão definidos...');
-            console.log('Senha definida?', !!senha);
-            console.log('Hash definido?', !!user.senha);
+        if (!user || user.length === 0) {
+            console.log('Usuário não encontrado');
+            return res.status(401).send('Email e/ou senha incorretos');
+        }
 
-            if (user.senha && senha) {
-                console.log('Comparando as senhas...');
-                const isMatch = bcrypt.compareSync(senha, user.senha);
-                console.log('As senhas coincidem?', isMatch);
+        const userData = user[0];
 
-                if (isMatch) {
-                    console.log('Configurando a sessão do usuário...');
-                    req.session.user = user;
-                    console.log('Usuário autenticado! Redirecionando para /home...');
-                    res.redirect('/home');
-                } else {
-                    console.log('Senha incorreta.');
-                    res.send('Email e/ou senha incorretos');
-                }
-            } else {
-                console.log('Senha ou hash não definidos.');
-                res.send('Email e/ou senha incorretos');
-            }
+        console.log('Usuário recuperado do banco de dados:', userData);
+        console.log('Senha fornecida:', senha);
+        console.log('Hash de senha do banco de dados:', userData.senha);
+
+        if (bcrypt.compareSync(senha, userData.senha)) {
+            const token = jwt.sign({ id: userData.id, email: userData.email }, secret, { expiresIn: '1h' });
+
+            // Armazenar o token em um cookie
+            res.cookie('token', token, { httpOnly: true });
+
+            // Redirecionar para a página inicial
+            console.log('Redirecionando para /home');
+            res.redirect('/home');
         } else {
-            console.log('Usuário não encontrado.');
-            res.send('Email e/ou senha incorretos');
+            console.log('Comparação de senha falhou');
+            res.status(401).send('Email e/ou senha incorretos');
         }
     } catch (error) {
-        console.error('Erro durante o processo de login:', error);
+        console.error('Erro durante o login:', error);
         res.status(500).send('Ocorreu um erro interno');
     }
 };
