@@ -11,36 +11,38 @@
 </head>
 
 <body>
-    <div class="login-container d-flex justify-content-center align-items-center">
-        <div class="card">
+    <div class="login-container d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow">
             <div class="card-body">
                 <div class="text-center mb-4 logo">
-                    <img src="/img/logo.png" alt="" alt="Gears ERP Logo" class="img-fluid">
+                    <img src="/img/logo.png" alt="Gears ERP Logo" class="img-fluid">
                 </div>
-                <form>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                            placeholder="Insira seu Email aqui">
+                <% if (error) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="password" placeholder="Insira sua senha aqui">
-                    </div>
-                    <button type="submit" class="btn btn-light mb-3"><a href="/home">Login</button></a>
-                    <div class="text-center">d
-                        <p>ou</p>
-                        <a href="#" class="btn btn-google">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="btn btn-microsoft">
-                            <i class="fab fa-windows"></i>
-                        </a>
-                    </div>
-                </form>
+                    <% } %>
+                        <form method="post" action="/login">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Usuario</label>
+                                <input type="text" name="email" class="form-control" id="usuario"
+                                    aria-describedby="emailHelp" placeholder="Insira seu Email aqui" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Senha</label>
+                                <input type="password" name="senha" class="form-control" id="password"
+                                    placeholder="Insira sua senha aqui" required>
+                            </div>
+                            <div class="mb-3 text-end">
+                                <a href="" class="text-decoration-none">Esqueci minha senha</a>
+                            </div>
+                            <button type="submit" class="btn btn-light w-100 mb-3">Login</button>
+                        </form>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

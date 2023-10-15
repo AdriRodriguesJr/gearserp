@@ -18,8 +18,8 @@ exports.contato = (req, res) => {
     res.render('contato');
 };
 
-exports.login = (req, res) => {
-    res.render('login');
+exports.showLoginPage = (req, res) => {
+    res.render('login', { error: null }); 
 };
 
 /* Pós login */
