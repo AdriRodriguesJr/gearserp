@@ -1,9 +1,9 @@
 const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({
-    host: '10.0.2.15',  // Substitua pelo IP da sua VM
+    host: 'localhost',  // Substitua pelo IP da sua VM
     user: 'root',
-    password: '503271962',  // Substitua pela senha que você configurou
+    password: '1234',  // Substitua pela senha que você configurou
     database: 'gearserp',
     waitForConnections: true,
     connectionLimit: 10,
