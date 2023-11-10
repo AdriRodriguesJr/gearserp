@@ -100,6 +100,9 @@
                 </ul>
             </div>
         </div>
+        <% if (typeof error !=='undefined' && error) { %>
+            <script>alert('<%= error %>');</script>
+            <% } %>
     </header>
 
     <!-- OS visualizada quanto Desktop ou telas grandes, em lista -->
@@ -186,68 +189,76 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="clienteForm" class="row">
+                    <form id="clienteForm" class="row" action="/cadastrar" method="post">
+                        <!-- Dados do Cliente -->
                         <div class="col-md-6 mb-3">
-                            <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="nome" required
+                            <label for="nomeCliente" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nomeCliente" name="cliente[nome]" required
                                 placeholder="Ex: Adriano Rodrigues">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="email" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="email" required
+                            <label for="emailCliente" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="emailCliente" name="cliente[email]" required
                                 placeholder="exemplo@exemplo.com">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="telefone" class="form-label">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" required placeholder="11912345678">
+                            <label for="telefoneCliente" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="telefoneCliente" name="cliente[telefone]"
+                                required placeholder="11912345678">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="cpf" class="form-label">CPF</label>
-                            <input type="text" class="form-control" id="cpf" required placeholder="123.456.789-02">
+                            <label for="cpfCliente" class="form-label">CPF</label>
+                            <input type="text" class="form-control" id="cpfCliente" name="cliente[cpf]" required
+                                placeholder="123.456.789-02">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="genero" class="form-label">Gênero</label>
-                            <select class="form-control" id="genero" required>
+                            <label for="generoCliente" class="form-label">Gênero</label>
+                            <select class="form-control" id="generoCliente" name="cliente[genero]" required>
                                 <option value="" disabled selected>Selecione uma opção</option>
-                                <option value="Cliente">F</option>
-                                <option value="Fornecedor">M</option>
+                                <option value="F">Feminino</option>
+                                <option value="M">Masculino</option>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="cep" class="form-label">CEP</label>
-                            <input type="text" class="form-control" id="cep" required placeholder="12345-000">
+                            <label for="cepCliente" class="form-label">CEP</label>
+                            <input type="text" class="form-control" id="cepCliente" name="cliente[cep]" required
+                                placeholder="12345-000">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="endereco" class="form-label">Endereço</label>
-                            <input type="text" class="form-control" id="endereco" required placeholder="Av. Exemplo">
+                            <label for="enderecoCliente" class="form-label">Endereço</label>
+                            <input type="text" class="form-control" id="enderecoCliente" name="cliente[endereco]"
+                                required placeholder="Av. Exemplo">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="numero" class="form-label">Número</label>
-                            <input type="text" class="form-control" id="numero" required placeholder="1234">
+                            <label for="numeroCliente" class="form-label">Número</label>
+                            <input type="text" class="form-control" id="numeroCliente" name="cliente[numero]" required
+                                placeholder="1234">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="estado" class="form-label">Estado</label>
-                            <input type="text" class="form-control" id="estado" required placeholder="São Paulo">
+                            <label for="estadoCliente" class="form-label">Estado</label>
+                            <input type="text" class="form-control" id="estadoCliente" name="cliente[estado]" required
+                                placeholder="São Paulo">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="cidade" class="form-label">Cidade</label>
-                            <input type="text" class="form-control" id="cidade" required placeholder="Campinas">
+                            <label for="cidadeCliente" class="form-label">Cidade</label>
+                            <input type="text" class="form-control" id="cidadeCliente" name="cliente[cidade]" required
+                                placeholder="Campinas">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="tipo" class="form-label">Tipo</label>
-                            <select class="form-control" id="tipo" required>
+                            <label for="tipoCliente" class="form-label">Tipo</label>
+                            <select class="form-control" id="tipoCliente" name="cliente[tipo]" required>
                                 <option value="" disabled selected>Selecione uma opção</option>
                                 <option value="Cliente">Cliente</option>
                                 <option value="Fornecedor">Fornecedor</option>
                             </select>
                         </div>
 
+                        <!-- Dados do Veículo -->
                         <h5 class="modal-header">Cadastro do Veículo</h5>
                         <hr>
-
                         <div class="col-md-6 mb-3">
                             <label for="tipoVeiculo" class="form-label">Tipo de Veículo</label>
-                            <select class="form-control" id="tipoVeiculo" name="tipoVeiculo" required>
+                            <select class="form-control" id="tipoVeiculo" name="veiculo[tipo]" required>
                                 <option value="" disabled selected>Selecione uma opção</option>
                                 <option value="Carro">Carro</option>
                                 <option value="Moto">Moto</option>
@@ -255,35 +266,33 @@
                                 <option value="Outro">Outro</option>
                             </select>
                         </div>
-
                         <div class="col-md-6 mb-3">
-                            <label for="montadora" class="form-label">Montadora</label>
-                            <input type="text" class="form-control" id="montadora" name="montadora" required
-                                placeholder="Ex: Ford">
+                            <label for="montadoraVeiculo" class="form-label">Montadora</label>
+                            <input type="text" class="form-control" id="montadoraVeiculo" name="veiculo[montadora]"
+                                required placeholder="Ex: Ford">
                         </div>
-
                         <div class="col-md-6 mb-3">
-                            <label for="modelo" class="form-label">Modelo</label>
-                            <input type="text" class="form-control" id="modelo" name="modelo" required
+                            <label for="modeloVeiculo" class="form-label">Modelo</label>
+                            <input type="text" class="form-control" id="modeloVeiculo" name="veiculo[modelo]" required
                                 placeholder="Ex: Fiesta">
                         </div>
-
                         <div class="col-md-6 mb-3">
-                            <label for="ano" class="form-label">Ano</label>
-                            <input type="number" class="form-control" id="ano" name="ano" required
+                            <label for="anoVeiculo" class="form-label">Ano</label>
+                            <input type="number" class="form-control" id="anoVeiculo" name="veiculo[ano]" required
                                 placeholder="Ex: 2022">
                         </div>
-
                         <div class="col-md-6 mb-3">
-                            <label for="placa" class="form-label">Placa</label>
-                            <input type="text" class="form-control" id="placa" name="placa" required
+                            <label for="placaVeiculo" class="form-label">Placa</label>
+                            <input type="text" class="form-control" id="placaVeiculo" name="veiculo[placa]" required
                                 placeholder="Ex: ABC-1234">
                         </div>
 
+                        <!-- Botão de Submissão -->
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Cadastrar Cliente e Veículo</button>
                         </div>
                     </form>
+
 
                 </div>
             </div>

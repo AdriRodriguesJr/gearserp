@@ -10,10 +10,8 @@ exports.login = async (req, res) => {
         console.log('Email ou senha não fornecidos');
         return res.status(400).send('Email e senha são obrigatórios');
     }
-
     try {
         const [user] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
-
         if (!user || user.length === 0) {
             console.log('Usuário não encontrado');
             return res.status(401).send('Email e/ou senha incorretos');
