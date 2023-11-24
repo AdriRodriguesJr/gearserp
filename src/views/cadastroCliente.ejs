@@ -118,15 +118,40 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Exemplo de linha estática, você pode duplicar isso para outros clientes -->
-                <tr data-bs-toggle="modal" data-bs-target="#clienteModal">
-                    <th scope="row">João Silva</th>
-                    <td>12345678901</td>
-                    <td>joao@email.com</td>
-                    <td>(11) 98765-4321</td>
-                </tr>
+                <% clientes.forEach(clientes=> { %>
+                    <tr>
+                        <td>
+                            <%= clientes.nome %>
+                        </td>
+                        <td>
+                            <%= clientes.cpf %>
+                        </td>
+                        <td>
+                            <%= clientes.email %>
+                        </td>
+                        <td>
+                            <%= clientes.telefone %>
+                        </td>
+                    </tr>
+                    <% }); %>
             </tbody>
         </table>
+        <div class="modal fade" id="osModal" tabindex="-1" aria-labelledby="osModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="osModalLabel">Detalhes da Ordem de Serviço</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Os detalhes da OS serão inseridos aqui -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Clientes visualizados quando mobile, em cards -->
@@ -152,20 +177,15 @@
     </div>
 
     <!-- Modal de dados dos clientes -->
-    <div class="modal fade" id="clienteModal" tabindex="-1" aria-labelledby="clienteModalLabel" aria-hidden="true">
+    <div class="modal fade" id="osModal" tabindex="-1" aria-labelledby="osModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="clienteModalLabel">Detalhes do Cliente</h5>
+                    <h5 class="modal-title" id="osModalLabel">Detalhes da Ordem de Serviço</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Os detalhes do cliente serão inseridos aqui -->
-                    <p><strong>CPF: </strong>12345678901</p>
-                    <p><strong>Nome: </strong>João Silva</p>
-                    <p><strong>Email: </strong>joao@email.com</p>
-                    <p><strong>Telefone: </strong>(11) 98765-4321</p>
-                    <!-- Adicione mais detalhes conforme necessário -->
+                    <!-- Os detalhes da OS serão inseridos aqui -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>

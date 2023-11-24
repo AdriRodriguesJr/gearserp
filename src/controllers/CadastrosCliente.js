@@ -1,12 +1,11 @@
 const db = require('../models/db'); // Caminho para o seu módulo de banco de dados
 
+//Cadastra os clientes no banco
 exports.cadastrarCliente = async (req, res) => {
     try {
         // Extrair dados do cliente e do veículo
         const { cliente, veiculo } = req.body;
-        // cliente contém: nome, email, telefone, cpf, cep, endereco, numero, estado, cidade, tipo, genero
-        // veiculo contém: tipo, montadora, modelo, ano, placa
-
+       
         // Inserir primeiro o cliente no banco de dados
         const resultCliente = await db.query('INSERT INTO cliente (nome, email, telefone, cpf, cep, endereco, numero, estado, cidade, tipo, genero, ativo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
         [cliente.nome, cliente.email, cliente.telefone, cliente.cpf, cliente.cep, cliente.endereco, cliente.numero, cliente.estado, cliente.cidade, cliente.tipo, cliente.genero, 1]);
@@ -26,3 +25,15 @@ exports.cadastrarCliente = async (req, res) => {
         res.status(500).send('Erro ao cadastrar cliente e veículo');
     }
 };
+
+//Exibe os dados do cliente cadastrado no banco
+exports.exibirClientes = async (req, res) => {
+    try {
+        const [clientes] = await db.query('SELECT * FROM cliente');
+        res.render('cadastroCliente', { clientes: clientes });
+    } catch (error) {
+        console.error('Erro ao buscar clientes:', error);
+        res.status(500).send('Erro ao buscar informações dos clientes');
+    }
+};
+
