@@ -7,7 +7,6 @@ const buscarCliente = require('../controllers/cadastroOs');
 const cadastros = require('../controllers/CadastrosCliente')
 
 router.get('/', homeController.index);
-router.get('/funcionalidades', homeController.funcionalidades);
 router.get('/sobre', homeController.sobre);
 router.get('/planos', homeController.planos);
 router.get('/contato', homeController.contato);
