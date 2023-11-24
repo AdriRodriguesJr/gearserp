@@ -2,10 +2,6 @@ exports.index = (req, res) => {
     res.render('index');
 };
 
-exports.funcionalidades = (req, res) => {
-    res.render('funcionalidades');
-};
-
 exports.sobre = (req, res) => {
     res.render('sobre');
 };
