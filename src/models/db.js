@@ -7,7 +7,8 @@ const pool = mysql.createPool({
     database: 'gearserp',
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
+    queueLimit: 0,
+    connectTimeout: 20000
 });
 
 console.log('Conexão com o banco realizada.');
