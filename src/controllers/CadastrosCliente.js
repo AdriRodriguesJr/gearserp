@@ -1,4 +1,4 @@
-const sequelize = require('../path/to/your/db'); // Caminho para o seu Sequelize
+const sequelize = require('../models/db'); // Caminho para o seu Sequelize
 
 exports.cadastrarCliente = async (req, res) => {
     try {
