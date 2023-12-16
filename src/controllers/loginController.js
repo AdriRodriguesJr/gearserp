@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const db = require('../models/db');
+const sequelize = require('../models/db'); // Atualize o caminho para o seu arquivo de conexão Sequelize
 const jwt = require('jsonwebtoken');
 const secret = process.env.JWT_SECRET;
 
@@ -10,21 +10,26 @@ exports.login = async (req, res) => {
         console.log('Email ou senha não fornecidos');
         return res.status(400).send('Email e senha são obrigatórios');
     }
+
     try {
-        const [user] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
-        if (!user || user.length === 0) {
+        const [results, metadata] = await sequelize.query('SELECT * FROM usuarios WHERE email = :email', {
+            replacements: { email: email },
+            type: sequelize.QueryTypes.SELECT
+        });
+
+        const usuario = results[0];
+
+        if (!usuario) {
             console.log('Usuário não encontrado');
             return res.status(401).send('Email e/ou senha incorretos');
         }
 
-        const userData = user[0];
-
-        console.log('Usuário recuperado do banco de dados:', userData);
+        console.log('Usuário recuperado do banco de dados:', usuario);
         console.log('Senha fornecida:', senha);
-        console.log('Hash de senha do banco de dados:', userData.senha);
+        console.log('Hash de senha do banco de dados:', usuario.senha);
 
-        if (bcrypt.compareSync(senha, userData.senha)) {
-            const token = jwt.sign({ id: userData.id, email: userData.email }, secret, { expiresIn: '1h' });
+        if (bcrypt.compareSync(senha, usuario.senha)) {
+            const token = jwt.sign({ id: usuario.id, email: usuario.email }, secret, { expiresIn: '1h' });
 
             // Armazenar o token em um cookie
             res.cookie('token', token, { httpOnly: true });

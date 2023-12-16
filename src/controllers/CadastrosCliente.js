@@ -1,30 +1,46 @@
-const db = require('../models/db'); // Caminho para o seu módulo de banco de dados
+const sequelize = require('../path/to/your/db'); // Caminho para o seu Sequelize
 
-//Cadastra os clientes no banco
 exports.cadastrarCliente = async (req, res) => {
     try {
-        // Extrair dados do cliente e do veículo
         const { cliente, veiculo } = req.body;
-       
-        // Inserir primeiro o cliente no banco de dados
-        const resultCliente = await db.query('INSERT INTO cliente (nome, email, telefone, cpf, cep, endereco, numero, estado, cidade, tipo, genero, ativo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
-        [cliente.nome, cliente.email, cliente.telefone, cliente.cpf, cliente.cep, cliente.endereco, cliente.numero, cliente.estado, cliente.cidade, cliente.tipo, cliente.genero, 1]);
 
-        // Obter o ID do cliente inserido
-        const clienteId = resultCliente.insertId;
+        // Inserir o cliente no banco de dados
+        await sequelize.query(
+            'INSERT INTO cliente (nome, email, telefone, cpf, cep, endereco, numero, estado, cidade, tipo, genero, ativo) VALUES (:nome, :email, :telefone, :cpf, :cep, :endereco, :numero, :estado, :cidade, :tipo, :genero, :ativo)',
+            {
+                replacements: {
+                    nome: cliente.nome,
+                    email: cliente.email,
+                    telefone: cliente.telefone,
+                    cpf: cliente.cpf,
+                    cep: cliente.cep,
+                    endereco: cliente.endereco,
+                    numero: cliente.numero,
+                    estado: cliente.estado,
+                    cidade: cliente.cidade,
+                    tipo: cliente.tipo,
+                    genero: cliente.genero,
+                    ativo: 1 // ou cliente.ativo se você está recebendo esse valor do req.body
+                },
+                type: sequelize.QueryTypes.INSERT
+            }
+        );
 
-        // Inserir o veículo relacionado ao cliente
-        const resultVeiculo = await db.query('INSERT INTO veiculo (tipo, montadora, modelo, ano, placa) VALUES (?, ?, ?, ?, ?)',
-        [veiculo.tipo, veiculo.montadora, veiculo.modelo, veiculo.ano, veiculo.placa]);
+        await sequelize.query(
+            'INSERT INTO veiculo (tipo, montadora, modelo, ano, placa, cliente_id) VALUES (:tipo, :montadora, :modelo, :ano, :placa, :cliente_id)',
+            {
+                replacements: { ...veiculo, cliente_id: clienteId },
+                type: sequelize.QueryTypes.INSERT
+            }
+        );
 
-        // Redirecionar ou enviar mensagem de sucesso
-        res.redirect('/cadastroCliente'); // ou res.send('Cadastro realizado com sucesso');
+        res.redirect('/cadastroCliente');
     } catch (error) {
-        // Tratar erros
         console.error('Erro no cadastro:', error);
-        res.status(500).send('Erro ao cadastrar cliente e veículo');
+        res.status(500).send('Erro ao cadastrar cliente');
     }
 };
+
 
 //Exibe os dados do cliente cadastrado no banco
 exports.exibirClientes = async (req, res) => {
