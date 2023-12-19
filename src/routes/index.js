@@ -15,14 +15,14 @@ router.get('/login', homeController.showLoginPage);
 router.post('/login', loginController.login);
 
 /* pós login - rotas protegidas - Exibição apenas */
-router.get('/home', authenticateJWT, homeController.home);
-router.get('/listaos', authenticateJWT, homeController.listaos);
+router.get('/home', homeController.home);
+router.get('/listaos', homeController.listaos);
 
 /* Rotas de requisição envolvendo o banco */
 
 router.post('/login', loginController.login);
-router.post('/cadastrar', authenticateJWT, cadastros.cadastrarCliente);
-router.get('/cadastroCliente', authenticateJWT, cadastros.exibirClientes);
-router.get('/buscarCliente', authenticateJWT,)
+router.post('/cadastrar', cadastros.cadastrarCliente);
+router.get('/cadastroCliente', cadastros.exibirClientes);
+router.get('/buscarCliente')
 
 module.exports = router;
